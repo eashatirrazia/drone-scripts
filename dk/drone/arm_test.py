@@ -7,7 +7,8 @@ from dronekit import connect, VehicleMode,LocationGlobal,LocationGlobalRelative
 from pymavlink import mavutil
 #############################
 ############DRONEKIT#################
-vehicle = connect('udp:127.0.0.1:14550',wait_ready=True)
+# vehicle = connect('tcp:127.0.0.1:5760',wait_ready=True)
+vehicle = connect('udp:127.0.0.1:14551',wait_ready=True)
 #########FUNCTIONS###########
 def arm():
 	while vehicle.is_armable!=True:
@@ -26,8 +27,8 @@ def arm():
 	while vehicle.armed==False:
 		print("Waiting for vehicle to become armed.")
 		time.sleep(1)
-	print("Look out! Virtual props are spinning!!")
-        time.sleep(.5)
+		print("Look out! Virtual props are spinning!!")
+		time.sleep(.5)
 
 	return None
 
